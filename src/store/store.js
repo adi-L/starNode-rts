@@ -10,7 +10,15 @@ export const store = {
         height: null,
         width: null
     },
+    frameRate:0,
     bulletsPool: []
+}
+export const frameRate = {
+    set: (frameRateCount) => {
+        store.frameRate=frameRateCount;
+    },
+    clear: () => store.frameRate=0,
+    get:()=>store.frameRate
 }
 export const bulletsPool = {
     set: (_bullet) => {
