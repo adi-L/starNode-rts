@@ -12,7 +12,8 @@ import { startMouseEvent, setEvent } from "../utilis/mouse.service";
 import { TYPE } from "../clans/Clans";
 import { renderBullets2 } from "../weapons/Weapon";
 import { Bullet } from "../weapons/bullets/Bullet";
-import { CanvasEngine, FrameRate } from "../entity/FrameRate";
+import { CanvasEngine } from "../engine/engine/CanvasEngine";
+
 export function startAppManager(component) {
   var Pool = (function () {
     var create = function (type, size) {
@@ -55,12 +56,13 @@ export function startAppManager(component) {
     return { create: create };
   })();
 
+  // remove this
   var screenWidth;
   var screenHeight;
   var bulletPool;
   var framesPerSec = 0;
-  var keySpace = false;
-  const ENGINE = new CanvasEngine({ Entities: [new FrameRate()] });
+  // remove this
+  const ENGINE = new CanvasEngine({ entities: [],frameRate:true });
 
   window.getAnimationFrame =
     window.requestAnimationFrame ||
@@ -78,7 +80,6 @@ export function startAppManager(component) {
 
     context.set(can.getContext("2d"));
     window.onresize();
-    keyboardInit();
     startMouseEvent();
     bulletInit();
     sceneInit();
@@ -157,31 +158,6 @@ export function startAppManager(component) {
     const isInRangeY = Math.abs(_y - _unit.pos.getY()) < _unit.height;
     return isinRangeX && isInRangeY;
   }
-
-  function keyboardInit() {
-    window.onkeydown = function (e) {
-      switch (e.keyCode) {
-        case 32:
-        case 75:
-          keySpace = true;
-          break;
-      }
-      e.preventDefault();
-    };
-
-    window.onkeyup = function (e) {
-      switch (e.keyCode) {
-        //key Space
-        case 75:
-        case 32:
-          keySpace = false;
-          break;
-      }
-
-      e.preventDefault();
-    };
-  }
-
   function bulletInit() {
     bulletPool = Pool.create(null, 40);
   }
@@ -200,7 +176,7 @@ export function startAppManager(component) {
     render();
     setTimeout(() => {
       getAnimationFrame(loop);
-    }, 10);
+    }, 0);
   }
   function isEnemyOnShootingRange(unit) {
     unit.isShooting = true;
@@ -304,7 +280,7 @@ export function startAppManager(component) {
         ctx.lineTo(10, 10);
         ctx.lineTo(10, -10);
         ctx.lineTo(-10, 0);
-        ctx.stroke();
+        ctx.stroke();   
         ctx.closePath();
         ctx.restore();
         if (_unit.isSelected) {
