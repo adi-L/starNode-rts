@@ -2,7 +2,7 @@ import { canvas, context, scene, bulletsPool, screen, mouse } from '../store/sto
 import { skirmish } from '../scene/scenes';
 import { startMouseEvent, setEvent } from '../utilis/mouse.service';
 import { TYPE } from '../clans/Clans';
-import { renderBullets2 } from '../weapons/Weapon';
+import { renderBullets2 } from '../weapons/renderBullets';
 import { Bullet } from '../weapons/bullets/Bullet';
 
 export function startAppManager(component) {
