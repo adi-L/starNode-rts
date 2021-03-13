@@ -17,7 +17,6 @@ export const frameRate = {
     set: (frameRateCount) => {
         store.frameRate=frameRateCount;
     },
-    clear: () => store.frameRate=0,
     get:()=>store.frameRate
 }
 export const bulletsPool = {
