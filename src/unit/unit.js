@@ -25,10 +25,7 @@ export class Unit {
         this.x = x;
         this.y = y;
         this.destAngle = 0;
-        this.weapon = {
-            type: weaponsFactory.MG56,
-            bullets: [new Bullet()]
-        }
+        this.weapon = weaponsFactory.MG56
 
         this.update = () => {
 
@@ -72,7 +69,7 @@ export class Unit {
 
         }
         this.shoot = (generateShot) => {
-            if (this.bulletDelay > 8) {
+            if (this.bulletDelay > this.weapon.delay) {
                 generateShot(this);
                 this.bulletDelay = 0;
             }
