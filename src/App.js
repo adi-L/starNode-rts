@@ -1,5 +1,5 @@
 import Header from "./Header";
-import { startAppManager } from './engine/engine';
+import { startAppManager } from './startup/startup';
 
 class App {
     componentDidMount() {

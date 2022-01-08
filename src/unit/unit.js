@@ -1,4 +1,4 @@
-import { createVec2D } from '../engine/createVec2D';
+import { createVec2D } from '../startup/createVec2D';
 import { Bullet } from '../weapons/bullets/Bullet';
 import { weaponsFactory } from '../weapons/weaponsFactory/weaponsFactory';
 

@@ -1,5 +1,5 @@
 
-import { createVec2D } from '../../engine/createVec2D';
+import { createVec2D } from '../../startup/createVec2D';
 
 export class Bullet {
     
